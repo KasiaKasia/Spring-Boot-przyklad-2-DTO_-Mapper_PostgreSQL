@@ -40,27 +40,34 @@ Jednym z najczęściej wykorzystywanych ficzerów w Spring Data JPA są repozyto
 ## Połączenie i inicjalizacją z bazą danych PostgreSQL
 
 1. Dodanie w pliku pom.xml zależności:
- 
-  `<dependency>
-       <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-data-jpa</artifactId>
-   </dependency>`
 
-  `<dependency>
-   		<groupId>org.postgresql</groupId>
-   		<artifactId>postgresql</artifactId>
-   		<scope>runtime</scope>
-   </dependency>`
+```
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+```
 
 2. Połączenie  z bazą danych wykonuje się w pliku :`application.properties` za pomocą opcji:
 
-`spring.datasource.url=jdbc:postgresql://localhost:5433/db`
-`spring.datasource.username=postgres`
-`spring.datasource.password=postgres`
+```
+spring.datasource.url=jdbc:postgresql://localhost:5433/db
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+```
 
 3. Dodanie tabeli do bazy danych wykonuje się za pomocą klasy definiującej pola jako nazwy kolumn w tabeli. Klasa musi zawierać adnotację:
-   `@Entity`
-   `@Table(name="person")`
+   ```
+   @Entity
+   @Table(name="person")
+   ```
+
 4. Należy także dodać konfiguracje w pliku `application.properties` z opcją:
 `spring.jpa.hibernate.ddl-auto=create-drop`
  

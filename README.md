@@ -41,26 +41,26 @@ Jednym z najczęściej wykorzystywanych ficzerów w Spring Data JPA są repozyto
 
 1. Dodanie w pliku pom.xml zależności:
 
-```
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-```
+   ```
+           <dependency>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-starter-data-jpa</artifactId>
+           </dependency>
+   
+           <dependency>
+               <groupId>org.postgresql</groupId>
+               <artifactId>postgresql</artifactId>
+               <scope>runtime</scope>
+           </dependency>
+   ```
 
 2. Połączenie  z bazą danych wykonuje się w pliku :`application.properties` za pomocą opcji:
 
-```
-spring.datasource.url=jdbc:postgresql://localhost:5433/db
-spring.datasource.username=postgres
-spring.datasource.password=postgres
-```
+   ```
+   spring.datasource.url=jdbc:postgresql://localhost:5433/db
+   spring.datasource.username=postgres
+   spring.datasource.password=postgres
+   ```
 
 3. Dodanie tabeli do bazy danych wykonuje się za pomocą klasy definiującej pola jako nazwy kolumn w tabeli. Klasa musi zawierać adnotację:
    ```
@@ -72,14 +72,16 @@ spring.datasource.password=postgres
 `spring.jpa.hibernate.ddl-auto=create-drop`
  
 Opcja `spring.jpa.hibernate.ddl-auto` ma właściwości:
-`none`: brak zmian w schemacie bazy danych.
-`validate`: weryfikacja zgodności schematu bazy z encjami.
-`update`: aktualizacja schematu bez usuwania istniejących tabel/kolumn.
-`create`: tworzenie nowych tabel przy każdym uruchomieniu aplikacji, usuwa istniejące.
-`create-drop`: tworzenie tabel przy starcie aplikacji i usunięcie ich przy jej zamknięciu.
+- `none`: brak zmian w schemacie bazy danych.
+- `validate`: weryfikacja zgodności schematu bazy z encjami.
+- `update`: aktualizacja schematu bez usuwania istniejących tabel/kolumn.
+- `create`: tworzenie nowych tabel przy każdym uruchomieniu aplikacji, usuwa istniejące.
+- `create-drop`: tworzenie tabel przy starcie aplikacji i usunięcie ich przy jej zamknięciu.
 
-5. Dodając skrypt z domyślna nazwa `data.sql` w katalogu: 
-`..\IdeaProjects\Spring-Boot-przyklad-2\src\main\resources\`
+5. Dodając skrypt z domyślna nazwa `data.sql` w katalogu:
+
+```..\IdeaProjects\Spring-Boot-przyklad-2\src\main\resources\```
+
 spowoduję uruchomienie się jego, przy starcie aplikacji.
 Jednak należy pamiętać, że wykonuję się przed inicjalizacją Hibernate. Taka konfiguracja jest przydatna wtedy gdy używamy narzędzi do migracji bazy danych.
 U nas jednak za każdym razem jest tworzony nowy schemat bazy danych, który jest wygenerowany przez Hibernate.
